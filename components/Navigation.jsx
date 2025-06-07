@@ -1,15 +1,19 @@
 "use client"
+import { useSession, signOut } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 export const Navigation = () => {
+  const { data: session, status } = useSession();
+
   return (
     <nav className="bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold">
+            <a href="/" className="text-2xl font-bold text-gray-900">
               🚀 Rocket Money
             </a>
           </div>
@@ -25,9 +29,29 @@ export const Navigation = () => {
             <a href="#testimonials" className="text-gray-600 hover:text-gray-900">
               Testimonials
             </a>
-            <Button onClick={()=>redirect("/login")} className="bg-black cursor-pointer text-white hover:bg-gray-800 rounded-full px-6 py-2">
-              Sign In
-            </Button>
+            {status === "authenticated" ? (
+              <div className="flex items-center space-x-4">
+                <a
+                  href="/profile"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Profile
+                </a>
+                <Button
+                  onClick={() => signOut()}
+                  className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-2"
+                >
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Button
+                onClick={() => redirect("/login")}
+                className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-2"
+              >
+                Sign In
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}

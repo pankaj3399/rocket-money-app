@@ -63,8 +63,8 @@ export default function RegisterPage() {
       
       <main className="max-w-md mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h1>
-          <p className="text-gray-600">Start managing your money smarter today</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create an account</h1>
+          <p className="text-gray-600">Join Rocket Money today</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-sm">
@@ -76,21 +76,23 @@ export default function RegisterPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <Input
-              label="First name"
+              label="First Name"
               type="text"
               id="firstName"
               name="firstName"
               placeholder="Enter your first name"
               required
+              className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
             />
             
             <Input
-              label="Last name"
+              label="Last Name"
               type="text"
               id="lastName"
               name="lastName"
               placeholder="Enter your last name"
               required
+              className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
             />
           </div>
 
@@ -101,6 +103,7 @@ export default function RegisterPage() {
             name="email"
             placeholder="Enter your email"
             required
+            className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
           />
           
           <Input
@@ -110,15 +113,17 @@ export default function RegisterPage() {
             name="password"
             placeholder="Create a password"
             required
+            className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
           />
 
           <Input
-            label="Confirm password"
+            label="Confirm Password"
             type="password"
             id="confirmPassword"
             name="confirmPassword"
             placeholder="Confirm your password"
             required
+            className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
           />
 
           <div className="flex items-center">
