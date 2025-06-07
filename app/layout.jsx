@@ -1,21 +1,19 @@
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
 
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Rocket Money - Smart Money Management",
-  description: "Manage your money smarter with Rocket Money. Track expenses, set budgets, and achieve your financial goals.",
+  description: "Take control of your finances with Rocket Money's smart money management tools.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} font-sans antialiased`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

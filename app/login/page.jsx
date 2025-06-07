@@ -65,6 +65,7 @@ export default function LoginPage() {
             name="email"
             placeholder="Enter your email"
             required
+            className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
           />
           
           <Input
@@ -74,6 +75,7 @@ export default function LoginPage() {
             name="password"
             placeholder="Enter your password"
             required
+            className="!bg-white !text-gray-900 !placeholder:text-gray-500 !border-gray-300"
           />
 
           <div className="flex items-center justify-between">
