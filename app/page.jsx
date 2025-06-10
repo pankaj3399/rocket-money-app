@@ -7,7 +7,6 @@ import { PricingSection } from "@/components/PricingSection";
 import { Testimonials } from "@/components/Testimonials";
 import { TrustBadges } from "@/components/TrustBadges";
 
-
 const Page = () => {
   return (
     <div className="min-h-screen bg-white">

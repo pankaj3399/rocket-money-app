@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from './ui/button';
 
 export const HeroSection = () => {
   return (
@@ -20,7 +20,7 @@ export const HeroSection = () => {
             Sign up
           </Button>
         </div>
-
+        
         {/* Right side - Mobile mockup */}
         <div className="flex justify-center md:justify-end">
           <div className="relative">
