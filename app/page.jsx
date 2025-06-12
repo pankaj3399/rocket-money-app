@@ -1,3 +1,4 @@
+"use client"
 import { FeatureOverview } from "@/components/FeatureOverview";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
@@ -10,6 +11,7 @@ import { TrustBadges } from "@/components/TrustBadges";
 const Page = () => {
   return (
     <div className="min-h-screen bg-white">
+
       <Navigation />
       <HeroSection />
       <TrustBadges />

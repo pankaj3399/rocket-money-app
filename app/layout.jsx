@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Rocket Money - Smart Money Management",
-  description: "Take control of your finances with Rocket Money's smart money management tools.",
+  description:
+    "Take control of your finances with Rocket Money's smart money management tools.",
 };
 
 export default function RootLayout({ children }) {
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <Toaster />
+
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -33,51 +33,15 @@ import {
   getCategoryExpenses,
   getAllExpenses,
 } from "../actions/budget";
-
-// Dummy nodemailer function
-const sendBudgetExceededEmail = async (categoryName, spent, budget) => {
-  try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        categoryName,
-        spent,
-        budget,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (!data.success) {
-      throw new Error(data.message);
-    }
-
-    console.log(`📧 Email Alert: Budget exceeded for ${categoryName}!`);
-    console.log(
-      `💰 Spent: $${spent} | Budget: $${budget} | Over by: $${spent - budget}`
-    );
-    toast.error(
-      `Budget exceeded for ${categoryName}! Over by $${(spent - budget).toFixed(
-        2
-      )}`,
-      {
-        duration: 5000,
-        icon: "🚨",
-      }
-    );
-  } catch (error) {
-    console.error('Failed to send email:', error);
-    toast.error('Failed to send budget alert email', {
-      duration: 5000,
-      icon: "❌",
-    });
-  }
-};
+import useNotifications from "@/hooks/useNotifications";
 
 const BudgetPage = () => {
+  const {
+    sendBudgetAlert,
+    requestPermission,
+    permission,
+    isSupported,
+  } = useNotifications();
   const [categories, setCategories] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const [newCategory, setNewCategory] = useState({
@@ -139,7 +103,7 @@ const BudgetPage = () => {
         category.budget > 0 &&
         category.spent > prevSpent
       ) {
-        sendBudgetExceededEmail(category.name, category.spent, category.budget);
+        sendBudgetAlert(category.name, category.spent, category.budget);
       }
     });
 
