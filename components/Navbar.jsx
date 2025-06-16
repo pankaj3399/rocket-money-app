@@ -39,6 +39,12 @@ const Navbar = () => {
               >
                 Budget
               </Link>
+              <Link
+                href="/calculations"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Calculations
+              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-4">
